@@ -1,7 +1,6 @@
 # Уязвимости Vue 2 и смежных пакетов
-## Содержание
+Содержание
 - [Уязвимости Vue 2 и смежных пакетов](#уязвимости-vue-2-и-смежных-пакетов)
-  - [Содержание](#содержание)
   - [Введение](#введение)
   - [Уязвимости фронтенда](#уязвимости-фронтенда)
     - [XSS](#xss)
@@ -259,7 +258,7 @@ p {
 
 React
 ```js
-this.state.data.map((item, i) => <div key={item.id}>item.text</div>)
+data.map((item, i) => <div key={item.id}>item.text</div>)
 ```
 Vue
 ```html
@@ -381,6 +380,9 @@ CSRF во Vue.js возможна тогда, когда при разработ
 * настроить Content Security Policy, которая будет обеспечивать безопасность всей платформы и послужит последней линией защиты.
 
 CSRF устраняется добавлением csrf-токенов (модуль csurf).
+
+https://ru.vuejs.org/v2/guide/security.html
+
 
 Источники
 1. https://docs.google.com/document/d/1ko_wmO_MO5hh1GE5j0qqz4I9NCnKEAA9H86z2vjr7s4/edit#
