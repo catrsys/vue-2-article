@@ -488,9 +488,7 @@ internals.hostHeaderRegex = /^(?:(?:\r\n)?\s)*((?:[^:]+)|(?:\[[^\]]+\]))(?::(\d+
 * выключить парсинг HTML, подставляя сообщения на страницу так, как есть, при помощи double mustaches: ```<div>{{ message.text }}</div>```. Стоит, однако, [отметить](https://blog.sqreen.com/xss-in-vue-js/), что даже полностый отказ от использования `v-html` в проекте не гарантирует отсутствие XSS, так как эта директива может использоваться в библиотеках;
 * в случае, если парсинг HTML необходим – санитизировать пользовательский ввод при помощи пакета `DOMpurify` или `sanitize-html`: ```<div v-dompurify-html="message.text"></div>```, ```<div v-html="sanitizeHtml(message.text)"></div>``` (не гарантирует защиты от CSTI);
 * использовать WAF и/или настроить Content Security Policy, однако и они [не гарантируют защиты](https://portswigger.net/research/evading-defences-using-vuejs-script-gadgets) от уязвимостей, если Vue может декодировать HTML entities, а CSP содержит `unsafe-eval`.
-```html
-<div v-dompurify-html="message.text"></div>
-```
+
 **CSRF** исправляется добавлением csrf-токенов при отправке форм. Конкретное решение зависит от реализации серверной части, и может использовать следующие библиотеки:
 * `csrf_token()` и `X-CSRF-TOKEN` в самом Vue
 * `csurf` для Express.js
